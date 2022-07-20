@@ -13,6 +13,7 @@ public class Turret : MonoBehaviour
     public float fireRate = 1f;
     public float fireCountdown = 0f;
     public int damage;
+    public int health;
     
     [Header("Unity Setup Fields")]
     public Transform center;
@@ -36,8 +37,18 @@ public class Turret : MonoBehaviour
     protected virtual void FetchPrice()
     {
         //temporary set damage here
+        health = 80;
         damage = 40;
         price = GameObject.Find("TestTurret").GetComponent<Card>().price;
+    }
+
+    public void TakeDamage(int _damage)
+    {
+        health -= _damage;
+        if (health <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     public int GetOriginalPrice()

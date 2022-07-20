@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private Transform target;
-    private int power;
+    protected Transform target;
+    protected int power;
 
     public float speed = 70f;
 
     public void Seek(Transform targ, int damage)
     {
+        AudioManager.instance.Play("BulletSFX");
         power = damage;
         target = targ;
     }
@@ -36,7 +37,7 @@ public class Bullet : MonoBehaviour
         transform.Translate(dir.normalized * distanceInFrame, Space.World);
     }
 
-    void HitTarget()
+    protected virtual void HitTarget()
     {
         target.gameObject.GetComponent<Enemy>().TakeDamage(power);
         Destroy(gameObject);

@@ -26,6 +26,8 @@ public class Slowbeam : MonoBehaviour
 
     private List<Collider> colliders;
 
+    public Collider trueColl;
+
     public GameObject beamEffect;
     // Start is called before the first frame update
     void Start()
@@ -45,10 +47,13 @@ public class Slowbeam : MonoBehaviour
         //check if its ready and constantly update the charge
         if (toCharge.fillAmount < 1)
         {
-            timePassed += Time.deltaTime;
             colToLerp = Color.white;
             toCharge.color = colToLerp;
-            toCharge.fillAmount = (timePassed / chargeTime > 1) ? 1 : timePassed / chargeTime;
+            if (!AudioManager.instance.paused)
+            {
+                timePassed += Time.deltaTime;
+                toCharge.fillAmount = (timePassed / chargeTime > 1) ? 1 : timePassed / chargeTime;   
+            }
         }
         else
         {
@@ -70,7 +75,16 @@ public class Slowbeam : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!ready)
+        RaycastHit[] hit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        hit = Physics.RaycastAll(ray);
+        bool actualHit = false;
+        foreach (var hits in hit)
+        {
+            if (hits.collider == trueColl)
+                actualHit = true;
+        }
+        if (!ready || !actualHit)
             return;
         ready = false;
         timePassed = 0f;
@@ -121,11 +135,20 @@ public class Slowbeam : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        lerpColor = true;
+        RaycastHit[] hit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        hit = Physics.RaycastAll(ray);
+        foreach (var hits in hit)
+        {
+            if (hits.collider == trueColl)
+                lerpColor = true;
+            return;
+        }
     }
 
     private void OnMouseExit()
     {
+        Debug.Log("exited");
         lerpColor = false;
     }
 /* Obsolete Code:

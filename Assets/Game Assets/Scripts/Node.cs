@@ -49,6 +49,7 @@ public class Node : MonoBehaviour
             //subtract the money
             PlayerStats.instance.money -= BuildManager.instance.currPrice;
             BuildManager.instance.currPrice = 0;
+            AudioManager.instance.Play("DroppedDown");
             //Place down the turret
             GameObject turretToBuild = BuildManager.instance.GetTurretToBuild();
             positionOffset = turretToBuild.GetComponent<Turret>().positionOffset;

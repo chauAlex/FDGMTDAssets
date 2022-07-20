@@ -132,7 +132,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   health: 0
+  strength: 0
   impactEffect: {fileID: 4596727833714461396, guid: 994389a7cbb907143b339d3ae127fea1, type: 3}
+  slimeBullPrefab: {fileID: 7623378848619389651, guid: ac8a3ce3c6547254b859389590b6cd33, type: 3}
+  range: 2
 --- !u!135 &7921479482206554112
 SphereCollider:
   m_ObjectHideFlags: 0

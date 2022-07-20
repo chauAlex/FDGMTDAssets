@@ -6,6 +6,7 @@ public class Shop : MonoBehaviour
 {
     public void PurchaseTurret(Card card)
     {
+        AudioManager.instance.Play("ClickedButton");
         BuildManager.instance.currPrice = card.price;
         BuildManager.instance.SetTurretToBuild(card.prefab);
         BuildManager.instance.spawnpointGO.SetActive(true);
