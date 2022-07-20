@@ -64,15 +64,14 @@ public class NodeUI : MonoBehaviour
         turret.IncreaseUpgradePrice();
         
         UpdateText();
-        //TODO: MAKE THIS IN THE TURRET SCRIPT, ALLOW POLYMORPH INSTEAD OF REAPEATING THIS CODE FOR OTOMA
-        turret.range += 0.25f;
-        turret.fireRate *= 1.5f;
+        turret.UpgradeSkills();
     }
 
     public void Remove()
     {
         //give money and increase next time price
         PlayerStats.instance.money += turret.GetOriginalPrice()/2;
+        AudioManager.instance.Play("SellSound");
         
         Destroy(turretGO);
         

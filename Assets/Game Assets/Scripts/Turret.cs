@@ -137,7 +137,7 @@ public class Turret : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, range);
     }
 
-    protected virtual void UpgradeSkills()
+    public virtual void UpgradeSkills()
     {
         range += 0.25f;
         fireRate *= 1.5f;

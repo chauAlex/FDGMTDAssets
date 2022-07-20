@@ -26,7 +26,7 @@ public class Otoma : Turret
         price = GameObject.Find("Otoma").GetComponent<Card>().price;
     }
     
-    protected override void UpgradeSkills()
+    public override void UpgradeSkills()
     {
         range += 0.25f;
         fireRate *= 1.5f;
