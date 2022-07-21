@@ -12,6 +12,10 @@ public class GameManager : MonoBehaviour
     public GameObject gameWonUI;
 
     public Slider musicTime;
+
+    public string nextLevel = "Level02";
+
+    public int nextLevelIndex = 2;
     // Update is called once per frame
     void Update()
     {
@@ -42,6 +46,7 @@ public class GameManager : MonoBehaviour
     {
         gameEnded = true;
         AudioManager.instance.StopAll();
+        PlayerPrefs.SetInt("levelReached", nextLevelIndex);
         gameWonUI.SetActive(true);
     }
 }

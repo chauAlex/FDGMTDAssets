@@ -5,14 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class GameWon : MonoBehaviour
 {
+    public SceneFader sf;
+    public GameManager gm;
     public void NextLevel()
     {
-        //TODO: MOVE TO NEXT LEVEL
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        sf.FadeTo(gm.nextLevel);
     }
 
     public void Menu()
     {
-        SceneManager.LoadScene("MainMenu");
+        sf.FadeTo("MainMenu");
     }
 }

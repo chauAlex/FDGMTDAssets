@@ -503,7 +503,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrumpetTurret
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1047901193958810514, guid: 74f6a13eb2339cf47a96db25fb76a0f1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 74f6a13eb2339cf47a96db25fb76a0f1, type: 3}
 --- !u!1 &504766190
 GameObject:
@@ -655,6 +656,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1329462374 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1569313241091779497, guid: b44795785d5a78649a75c7bdaa2dc43e, type: 3}
+  m_PrefabInstance: {fileID: 1988191547}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 889cbcd224105d4488d0009c0ef1300c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1365202292
 GameObject:
   m_ObjectHideFlags: 0
@@ -1072,7 +1084,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5ccfbfc1cf48ff41ab604202071a249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLoad: TestLevel
+  levelToLoad: LevelMenu
+  sceneFader: {fileID: 1329462374}
 --- !u!4 &1471365020
 Transform:
   m_ObjectHideFlags: 0
@@ -1248,3 +1261,60 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!1001 &1988191547
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1569313241091779496, guid: b44795785d5a78649a75c7bdaa2dc43e, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1569313241091779496, guid: b44795785d5a78649a75c7bdaa2dc43e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 1569313241091779496, guid: b44795785d5a78649a75c7bdaa2dc43e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 1569313241091779496, guid: b44795785d5a78649a75c7bdaa2dc43e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1569313241091779496, guid: b44795785d5a78649a75c7bdaa2dc43e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1569313241091779496, guid: b44795785d5a78649a75c7bdaa2dc43e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1569313241091779496, guid: b44795785d5a78649a75c7bdaa2dc43e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1569313241091779496, guid: b44795785d5a78649a75c7bdaa2dc43e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1569313241091779496, guid: b44795785d5a78649a75c7bdaa2dc43e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1569313241091779496, guid: b44795785d5a78649a75c7bdaa2dc43e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1569313241091779496, guid: b44795785d5a78649a75c7bdaa2dc43e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1569313241091779498, guid: b44795785d5a78649a75c7bdaa2dc43e, type: 3}
+      propertyPath: m_Name
+      value: SceneFader
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b44795785d5a78649a75c7bdaa2dc43e, type: 3}
