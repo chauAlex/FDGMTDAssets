@@ -26,6 +26,7 @@ public class LevelSelector : MonoBehaviour
 
     public void Select(string levelName)
     {
+        Destroy(GameObject.Find("MusicManager"));
         sf.FadeTo(levelName);
     }
 }

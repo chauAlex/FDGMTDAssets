@@ -13,11 +13,20 @@ public class Otoma : Turret
         {
             if (collid.CompareTag("Enemy"))
             {
-                GameObject effect = (GameObject)Instantiate(otomaEffect, center.position, Quaternion.identity);
-                Destroy(effect, 2f);
-                collid.gameObject.GetComponent<Enemy>().TakeDamage(damage);
+                StartCoroutine(SpawnParticles(collid));
             }
         }
+        
+        GetComponent<Animator>().Play("OtomaChildJump");
+        GetComponent<Animator>().Play("OtomaChildJump", -1, 0);
+    }
+
+    IEnumerator SpawnParticles(Collider collid)
+    {
+        yield return new WaitForSeconds(1f);
+        GameObject effect = (GameObject)Instantiate(otomaEffect, center.position, Quaternion.identity);
+        Destroy(effect, 2f);
+        collid.gameObject.GetComponent<Enemy>().TakeDamage(damage);
     }
 
     protected override void FetchPrice()

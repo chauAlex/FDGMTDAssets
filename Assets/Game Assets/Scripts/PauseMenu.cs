@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
     public SceneFader sf;
     public GameObject ui;
+    public Slider volChange;
     public void Retry()
     {
         sf.FadeTo(SceneManager.GetActiveScene().name);
@@ -25,6 +26,11 @@ public class PauseMenu : MonoBehaviour
         {
             Toggle();
         }
+    }
+
+    public void VolumeToggle()
+    {
+        AudioManager.instance.DecVolumeAll(volChange.value);
     }
 
     public void Toggle()

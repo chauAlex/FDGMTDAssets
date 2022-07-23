@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 3777111888305195476}
   - component: {fileID: -4458427849516662580}
   - component: {fileID: 8653951692613961686}
+  - component: {fileID: 4775155897568824247}
   m_Layer: 0
   m_Name: OtomaTurret
   m_TagString: Turret
@@ -133,12 +134,13 @@ MonoBehaviour:
   fireRate: 0.2
   fireCountdown: 0
   damage: 0
+  health: 0
   center: {fileID: 3777111888305195476}
   turnSpeed: 10
   bulletPrefab: {fileID: 0}
   firePoint: {fileID: 0}
   positionOffset: {x: 0, y: 0.2, z: 0}
-  otomaEffect: {fileID: 6491433414333693159, guid: a2599242e5182c944b21dfb1bb6f61c6, type: 3}
+  otomaEffect: {fileID: 1037864198121816, guid: 638c8ca438a11c54987de876e500ed02, type: 3}
 --- !u!136 &8653951692613961686
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -153,3 +155,23 @@ CapsuleCollider:
   m_Height: 0.027432522
   m_Direction: 1
   m_Center: {x: 0.0012205093, y: 0.008896014, z: 0}
+--- !u!95 &4775155897568824247
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8369328470850880248}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 71b0ed786ce9bf544af088fc3fcf0137, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

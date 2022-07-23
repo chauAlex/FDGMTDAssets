@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = System.Random;
 
 public class Enemy : MonoBehaviour, IPooledObject
@@ -21,6 +22,7 @@ public class Enemy : MonoBehaviour, IPooledObject
     
     public GameObject impactEffect;
     public GameObject slimeBullPrefab;
+    public Slider healthSlider;
     public float range = 2f;
 
     public void OnObjectSpawn()
@@ -42,6 +44,10 @@ public class Enemy : MonoBehaviour, IPooledObject
         health -= amount;
         if (health <= 0)
             Die();
+        else
+        {
+            healthSlider.value = health;
+        }
     }
 
     public void Die()
@@ -78,6 +84,12 @@ public class Enemy : MonoBehaviour, IPooledObject
         else
         {
             Vector3 direction = target.position - transform.position;
+            if (direction.normalized.x > direction.normalized.y && direction.normalized.x > direction.normalized.z)
+                healthSlider.gameObject.SetActive(true);
+            else
+            {
+                healthSlider.gameObject.SetActive(false);
+            }
             //move towards waypoint
             transform.Translate(direction.normalized * (speed * Time.deltaTime), Space.World);
         

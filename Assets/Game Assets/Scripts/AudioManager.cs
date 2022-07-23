@@ -42,7 +42,18 @@ public class AudioManager : MonoBehaviour
         {
             return;
         }
+        Debug.Log("Attempting to play " + name);
         s.source.Play();
+    }
+    
+    public void Stop(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            return;
+        }
+        s.source.Stop();
     }
 
     public float GetTime(string name)
@@ -81,6 +92,7 @@ public class AudioManager : MonoBehaviour
 
     public void DecVolumeAll(float value)
     {
+        Debug.Log("adjusting vol by factor of " + value);
         foreach (var s in sounds)
         {
             //adjusts the volume off 0-1 scale, for the pause menu specifically
