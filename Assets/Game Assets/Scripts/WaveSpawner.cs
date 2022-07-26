@@ -5,6 +5,7 @@ using System.Globalization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = System.Random;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -48,6 +49,16 @@ public class WaveSpawner : MonoBehaviour
 
     void SpawnEnemy()
     {
-        op.SpawnFromPool("Enemy", spawnPoint.position, spawnPoint.rotation);
+        //currently a 20/80 split of enemies, to be changed soon
+        Random gen = new Random();
+        int num = gen.Next(1, 11);
+        if (num <= 2)
+        {
+            op.SpawnFromPool("FragileEnemy", spawnPoint.position, spawnPoint.rotation);
+        }
+        else
+        {
+            op.SpawnFromPool("Enemy", spawnPoint.position, spawnPoint.rotation);   
+        }
     }
 }

@@ -178,9 +178,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toCharge: {fileID: 5818919808826802239}
-  chargeTime: 5
+  chargeTime: 25
   trueColl: {fileID: 4891387924004455483}
-  beamEffect: {fileID: 8291809404174667187, guid: 0fbe5ac3d8cb099438a566b19fdb1311, type: 3}
+  beamEffect: {fileID: 1682439711449256, guid: 9e95675e70b3fca499b97a0b9a78a0df, type: 3}
 --- !u!65 &6182788540541597656
 BoxCollider:
   m_ObjectHideFlags: 0

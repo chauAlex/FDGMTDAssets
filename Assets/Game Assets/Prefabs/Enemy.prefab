@@ -456,6 +456,12 @@ MonoBehaviour:
   strength: 0
   fireRate: 0
   fireCountdown: 0
+  speedNum: 1
+  healthNum: 100
+  strengthNum: 5
+  fireRateNum: 0.5
+  fireCountdownNum: 1
+  worth: 20
   impactEffect: {fileID: 1742013225946848, guid: b3d8264aa7d2d824a8a503e45291ddf4, type: 3}
   slimeBullPrefab: {fileID: 7623378848619389651, guid: ac8a3ce3c6547254b859389590b6cd33, type: 3}
   healthSlider: {fileID: 6724009827988333268}

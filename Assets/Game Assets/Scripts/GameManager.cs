@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +14,7 @@ public class GameManager : MonoBehaviour
     public GameObject gameWonUI;
 
     public Slider musicTime;
+    public TextMeshProUGUI timeFloat;
 
     public string nextLevel = "Level02";
 
@@ -24,6 +27,7 @@ public class GameManager : MonoBehaviour
         
         //update audio slider
         musicTime.value = AudioManager.instance.GetTime("MainTheme");
+        timeFloat.text = Math.Round((decimal)AudioManager.instance.GetTime("MainTheme"), 2).ToString();
         
         if (PlayerStats.instance.lives <= 0)
         {

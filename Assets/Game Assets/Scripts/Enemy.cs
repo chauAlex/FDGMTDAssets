@@ -8,13 +8,22 @@ using Random = System.Random;
 
 public class Enemy : MonoBehaviour, IPooledObject
 {
-    public float speed = 1f;
+    public float speed;
     private float origSpeed;
-
+    
+    [Header("Debugging Fields")]
     public int health;
     public int strength;
     public float fireRate;
     public float fireCountdown;
+
+    [Header("Adjustable Fields")] 
+    public float speedNum = 1f;
+    public int healthNum = 100;
+    public int strengthNum = 5;
+    public float fireRateNum = 0.5f;
+    public float fireCountdownNum = 1f;
+    public int worth = 50;
 
     private Transform target;
     private int wavepointIndex;
@@ -27,16 +36,18 @@ public class Enemy : MonoBehaviour, IPooledObject
 
     public void OnObjectSpawn()
     {
-        health = 100;
-        strength = 5;
-        fireRate = 0.5f;
-        fireCountdown = 1f;
+        speed = speedNum;
+        health = healthNum;
+        strength = strengthNum;
+        fireRate = fireRateNum;
+        fireCountdown = fireCountdownNum;
         //choose a path
         Random rnd = new Random();
         pathIndex = rnd.Next(0, Waypoints.Instance.paths);
         target = Waypoints.Instance.points[pathIndex][0];
         origSpeed = speed;
         wavepointIndex = 0;
+        healthSlider.maxValue = health;
     }
 
     public void TakeDamage(int amount)
@@ -54,13 +65,13 @@ public class Enemy : MonoBehaviour, IPooledObject
     {
         GameObject effect = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(effect, 0.65f);
-        PlayerStats.instance.money += 50;
+        PlayerStats.instance.money += worth;
         gameObject.SetActive(false);
     }
 
     public void Slow()
     {
-        speed = 0.1f * speed;
+        speed = 0.5f * speed;
         Invoke("ResetSpeed", 5f);
     }
 
