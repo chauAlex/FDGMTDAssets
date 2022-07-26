@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class Slowbeam : MonoBehaviour
@@ -134,6 +135,8 @@ public class Slowbeam : MonoBehaviour
 
     private void OnMouseEnter()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
         RaycastHit[] hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         hit = Physics.RaycastAll(ray);
@@ -147,7 +150,8 @@ public class Slowbeam : MonoBehaviour
 
     private void OnMouseExit()
     {
-        Debug.Log("exited");
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
         lerpColor = false;
     }
 /* Obsolete Code:

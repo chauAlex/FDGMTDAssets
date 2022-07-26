@@ -14,8 +14,6 @@ public class WaveSpawner : MonoBehaviour
 
     public float timeBetweenWaves = 5.5f;
     private float countdown = 2f;
-
-    public TextMeshProUGUI waveCountdownText;
     
     private int waveNumber = 0;
     private ObjectPooler op;
@@ -32,10 +30,10 @@ public class WaveSpawner : MonoBehaviour
             StartCoroutine(SpawnWave());
             countdown = timeBetweenWaves;
         }
+        if(!AudioManager.instance.paused)
+            countdown -= Time.deltaTime;
 
-        countdown -= Time.deltaTime;
-
-        waveCountdownText.text = Mathf.Round(countdown).ToString(CultureInfo.InvariantCulture);
+        //waveCountdownText.text = Mathf.Round(countdown).ToString(CultureInfo.InvariantCulture);
     }
 
     IEnumerator SpawnWave()

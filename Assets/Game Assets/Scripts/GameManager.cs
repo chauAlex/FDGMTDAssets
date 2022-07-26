@@ -33,12 +33,16 @@ public class GameManager : MonoBehaviour
         {
             WonGame();
         }
+
+        if (AudioManager.instance.GetTime("SlimeAttackTheme") >= 8.5f)
+            AudioManager.instance.DisableButton();
     }
 
     private void EndGame()
     {
         gameEnded = true;
         AudioManager.instance.StopAll();
+        Time.timeScale = 0f;
         gameOverUI.SetActive(true);
     }
     
@@ -46,6 +50,7 @@ public class GameManager : MonoBehaviour
     {
         gameEnded = true;
         AudioManager.instance.StopAll();
+        Time.timeScale = 0f;
         PlayerPrefs.SetInt("levelReached", nextLevelIndex);
         gameWonUI.SetActive(true);
     }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using Toggle = UnityEngine.UIElements.Toggle;
 
 public class AudioManager : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class AudioManager : MonoBehaviour
     public bool paused;
     public Image buttonImage;
     public Animator buttonAnim;
+    public bool pausedUI;
+    public Button playButton;
+    private bool toggle;
     private void Awake()
     {
         if (instance == null)
@@ -33,6 +37,8 @@ public class AudioManager : MonoBehaviour
         
         Play("MainTheme");
         paused = false;
+        pausedUI = false;
+        toggle = false;
     }
 
     public void Play(string name)
@@ -42,7 +48,6 @@ public class AudioManager : MonoBehaviour
         {
             return;
         }
-        Debug.Log("Attempting to play " + name);
         s.source.Play();
     }
     
@@ -69,30 +74,80 @@ public class AudioManager : MonoBehaviour
             s.source.Stop();
         }
     }
+    public void DisableButton()
+    {
+        if(toggle)
+            return;
+        else
+        {
+            toggle = true;
+        }
+        ChangeThemeState();
+        buttonImage.color = new Color(Color.red.r, Color.red.g, Color.red.b, 0.5f);
+        buttonAnim.enabled = false;
+        playButton.enabled = false;
+    }
 
     public void ChangeThemeState()
     {
-        Sound s = Array.Find(sounds, sound => sound.name == "MainTheme");
         if (paused)
         {
-            s.source.UnPause();
+            ToggleMainAndAttackTheme();
             paused = false;
             buttonImage.color = Color.white;
             buttonAnim.enabled = true;
         }
         else
         {
-            s.source.Pause();
-            Play("PausedMusic");
+            ToggleMainAndAttackTheme();
             paused = true;
             buttonImage.color = Color.red;
             buttonAnim.enabled = false;
         }
     }
 
+    public void PauseMenuChangeState()
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == "MainTheme");
+        Sound pTheme = Array.Find(sounds, sound => sound.name == "SlimeAttackTheme");
+        if (pausedUI)
+        {
+            if(paused)
+                pTheme.source.Pause();
+            else
+            {
+                s.source.Pause();
+            }
+        }
+        else
+        {
+            if(paused)
+                pTheme.source.UnPause();
+            else
+            {
+                s.source.UnPause();
+            }
+        }
+    }
+    private void ToggleMainAndAttackTheme()
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == "MainTheme");
+        Sound pTheme = Array.Find(sounds, sound => sound.name == "SlimeAttackTheme");
+        if (paused)
+        {
+            s.source.UnPause();
+            pTheme.source.Pause();
+        }
+        else
+        {
+            pTheme.source.Play();
+            s.source.Pause();
+        }
+    }
+
     public void DecVolumeAll(float value)
     {
-        Debug.Log("adjusting vol by factor of " + value);
+        //Debug.Log("adjusting vol by factor of " + value);
         foreach (var s in sounds)
         {
             //adjusts the volume off 0-1 scale, for the pause menu specifically

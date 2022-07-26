@@ -29,8 +29,8 @@ public class Enemy : MonoBehaviour, IPooledObject
     {
         health = 100;
         strength = 5;
-        fireRate = 1f;
-        fireCountdown = 0f;
+        fireRate = 0.5f;
+        fireCountdown = 1f;
         //choose a path
         Random rnd = new Random();
         pathIndex = rnd.Next(0, Waypoints.Instance.paths);

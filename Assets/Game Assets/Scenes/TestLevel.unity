@@ -906,7 +906,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1102885483}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -2609,7 +2609,7 @@ RectTransform:
   - {fileID: 2071244853}
   - {fileID: 1021738401}
   m_Father: {fileID: 1102885483}
-  m_RootOrder: 4
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2968,7 +2968,7 @@ RectTransform:
   - {fileID: 972785007}
   - {fileID: 1680199012}
   m_Father: {fileID: 1102885483}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3580,7 +3580,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1102885483}
-  m_RootOrder: 9
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -3774,7 +3774,7 @@ RectTransform:
   - {fileID: 269579589}
   - {fileID: 98521236}
   m_Father: {fileID: 1102885483}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -4985,13 +4985,13 @@ RectTransform:
   - {fileID: 1107965716}
   - {fileID: 1729941308}
   - {fileID: 1090815614}
-  - {fileID: 531587245}
   - {fileID: 258934257}
   - {fileID: 812269066}
-  - {fileID: 671580390}
   - {fileID: 1479946303}
   - {fileID: 783490136}
   - {fileID: 1334157716}
+  - {fileID: 671580390}
+  - {fileID: 531587245}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5672,7 +5672,7 @@ RectTransform:
   - {fileID: 788999541}
   - {fileID: 1299602262}
   m_Father: {fileID: 1102885483}
-  m_RootOrder: 10
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -6636,7 +6636,7 @@ RectTransform:
   m_Children:
   - {fileID: 2134778014}
   m_Father: {fileID: 1102885483}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -8366,7 +8366,6 @@ MonoBehaviour:
   enemyPrefab: {fileID: 1653768995068418344, guid: 16b19a3a4ef6bf040968ff213cf4cab4, type: 3}
   spawnPoint: {fileID: 2123382264}
   timeBetweenWaves: 5.5
-  waveCountdownText: {fileID: 528206088}
 --- !u!4 &1957148905
 Transform:
   m_ObjectHideFlags: 0
@@ -8585,11 +8584,6 @@ MonoBehaviour:
     volume: 0.213
     pitch: 1
     source: {fileID: 0}
-  - name: PausedMusic
-    clip: {fileID: 8300000, guid: cabfae866cab347928b74b7d0ca6bfa9, type: 3}
-    volume: 0.753
-    pitch: 1
-    source: {fileID: 0}
   - name: BulletSFX
     clip: {fileID: 8300000, guid: 881e3f52c86c94f26a60718d35627cd8, type: 3}
     volume: 0.078
@@ -8598,26 +8592,38 @@ MonoBehaviour:
   - name: ClickedButton
     clip: {fileID: 8300000, guid: 19f89c6e740e7447f9e12a8310d3e973, type: 3}
     volume: 0.142
-    pitch: 0.79
+    pitch: 1
     source: {fileID: 0}
   - name: DroppedDown
     clip: {fileID: 8300000, guid: 29bde6326b4c34ad8a12da475f79b50a, type: 3}
     volume: 0.142
-    pitch: 0.79
+    pitch: 1
     source: {fileID: 0}
   - name: SellSound
     clip: {fileID: 8300000, guid: 3becec1909f194046945d85ac1077772, type: 3}
     volume: 0.201
-    pitch: 0.79
+    pitch: 1
     source: {fileID: 0}
   - name: MenuTheme
     clip: {fileID: 8300000, guid: 18668a67cc4187741a09d478a4ff2580, type: 3}
     volume: 0.12
-    pitch: 0.79
+    pitch: 1
+    source: {fileID: 0}
+  - name: ThudSound
+    clip: {fileID: 8300000, guid: 7bef0064f8567430cac22499c6b93d4f, type: 3}
+    volume: 0.372
+    pitch: 1
+    source: {fileID: 0}
+  - name: SlimeAttackTheme
+    clip: {fileID: 8300000, guid: 907a3432f0e54c04c981f507397eacd0, type: 3}
+    volume: 0.372
+    pitch: 1
     source: {fileID: 0}
   paused: 0
   buttonImage: {fileID: 1479946306}
   buttonAnim: {fileID: 1479946304}
+  pausedUI: 0
+  playButton: {fileID: 1479946305}
 --- !u!1001 &2005743303
 PrefabInstance:
   m_ObjectHideFlags: 0

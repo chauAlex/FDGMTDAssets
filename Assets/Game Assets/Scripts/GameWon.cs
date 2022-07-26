@@ -9,11 +9,13 @@ public class GameWon : MonoBehaviour
     public GameManager gm;
     public void NextLevel()
     {
+        Time.timeScale = 1f;
         sf.FadeTo(gm.nextLevel);
     }
 
     public void Menu()
     {
+        Time.timeScale = 1f;
         sf.FadeTo("MainMenu");
     }
 }
