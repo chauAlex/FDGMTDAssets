@@ -1,0 +1,17 @@
+﻿{
+  "enemylist":
+          [
+            {
+              "name": "Enemy",
+              "prob": 0.0
+            },
+            {
+              "name": "FragileEnemy",
+              "prob": 0.3
+            },
+            {
+              "name": "ToughEnemy",
+              "prob": 0.7
+            }
+          ]
+}

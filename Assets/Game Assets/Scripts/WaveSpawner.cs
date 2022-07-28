@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
+using Game_Assets.Scripts;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,13 +16,21 @@ public class WaveSpawner : MonoBehaviour
 
     public float timeBetweenWaves = 5.5f;
     private float countdown = 2f;
+    private int currLevel;
     
     private int waveNumber = 0;
+    public float waveFactor = 1;
+    public int waveOffset = 0;
     private ObjectPooler op;
+    public TextAsset jsonFile;
+    public EnemyDataHolder edh;
 
     private void Start()
     {
         op = ObjectPooler.Instance;
+        currLevel = FindObjectOfType<GameManager>().nextLevelIndex - 1;
+
+        edh = JsonUtility.FromJson<EnemyDataHolder>(jsonFile.text);
     }
 
     private void Update()
@@ -40,7 +49,8 @@ public class WaveSpawner : MonoBehaviour
     IEnumerator SpawnWave()
     {
         waveNumber++;
-        for (int i = 0; i < waveNumber; i++)
+        int numPerWave = (int)(waveFactor * waveNumber) + waveOffset;
+        for (int i = 0; i < numPerWave; i++)
         {
             SpawnEnemy();
             yield return new WaitForSeconds(1f);
@@ -51,14 +61,14 @@ public class WaveSpawner : MonoBehaviour
     {
         //currently a 20/80 split of enemies, to be changed soon
         Random gen = new Random();
-        int num = gen.Next(1, 11);
-        if (num <= 2)
+        double num = gen.NextDouble();
+        for (int i = edh.enemylist.Length-1; i >= 0; i--)
         {
-            op.SpawnFromPool("FragileEnemy", spawnPoint.position, spawnPoint.rotation);
-        }
-        else
-        {
-            op.SpawnFromPool("Enemy", spawnPoint.position, spawnPoint.rotation);   
+            if (num >= edh.enemylist[i].prob)
+            {
+                op.SpawnFromPool(edh.enemylist[i].name, spawnPoint.position, spawnPoint.rotation);
+                break;
+            }
         }
     }
 }

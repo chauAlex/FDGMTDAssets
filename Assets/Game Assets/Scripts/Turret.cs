@@ -25,12 +25,13 @@ public class Turret : MonoBehaviour
 
     protected int price;
     protected int upgradePrice;
+    protected int upgradeLevel = 1;
 
     // Start is called before the first frame update
     void Start()
     {
         FetchPrice();
-        upgradePrice = price * 2;
+        upgradePrice = (int)(price * 1.5);
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
 
@@ -63,7 +64,7 @@ public class Turret : MonoBehaviour
     
     public void IncreaseUpgradePrice()
     {
-        upgradePrice *= 2;
+        upgradePrice = (int)(upgradePrice * 1.5);
     }
 
     void UpdateTarget()
@@ -139,6 +140,7 @@ public class Turret : MonoBehaviour
 
     public virtual void UpgradeSkills()
     {
+        upgradeLevel += 1;
         range += 0.25f;
         fireRate *= 1.5f;
         damage += 5;

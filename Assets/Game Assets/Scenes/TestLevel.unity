@@ -8070,6 +8070,7 @@ MonoBehaviour:
   musicTime: {fileID: 98521238}
   timeFloat: {fileID: 530954923}
   nextLevel: Level02
+  levelTime: 60
   nextLevelIndex: 2
 --- !u!114 &1957148901
 MonoBehaviour:
@@ -8138,6 +8139,9 @@ MonoBehaviour:
   enemyPrefab: {fileID: 1653768995068418344, guid: 16b19a3a4ef6bf040968ff213cf4cab4, type: 3}
   spawnPoint: {fileID: 2123382264}
   timeBetweenWaves: 5.5
+  jsonFile: {fileID: 4900000, guid: cc6c34949ef02aa48b90a8bf9502aa01, type: 3}
+  edh:
+    enemylist: []
 --- !u!4 &1957148905
 Transform:
   m_ObjectHideFlags: 0

@@ -360,7 +360,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1247994350920375057, guid: c4b4ea9b45cdaa34d819a7e13bc71218, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: TestLevel
+      value: Level02
       objectReference: {fileID: 0}
     - target: {fileID: 1247994350920375057, guid: c4b4ea9b45cdaa34d819a7e13bc71218, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -1224,7 +1224,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1247994350920375057, guid: c4b4ea9b45cdaa34d819a7e13bc71218, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: TestLevel
+      value: ComingSoon
       objectReference: {fileID: 0}
     - target: {fileID: 1247994350920375057, guid: c4b4ea9b45cdaa34d819a7e13bc71218, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName

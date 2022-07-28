@@ -6,6 +6,7 @@ public class Otoma : Turret
 {
     public GameObject otomaEffect;
     public GameObject groundEffect;
+    private float slowFactor = 1.05f;
     protected override void Shoot()
     {
         //make AOE ground pound
@@ -31,6 +32,11 @@ public class Otoma : Turret
         Destroy(geffect, 2f);
         AudioManager.instance.Play("ThudSound");
         collid.gameObject.GetComponent<Enemy>().TakeDamage(damage);
+        if (slowFactor < 1f)
+        {
+            collid.gameObject.GetComponent<Enemy>().SlowTickFor(slowFactor, 3);
+            Debug.Log("slowed");
+        }
     }
 
     protected override void FetchPrice()
@@ -41,8 +47,14 @@ public class Otoma : Turret
     
     public override void UpgradeSkills()
     {
+        upgradeLevel += 1;
         range += 0.25f;
         fireRate *= 1.5f;
         damage += 5;
+        if (upgradeLevel >= 2)
+        {
+            slowFactor -= 0.25f;
+            slowFactor = Mathf.Clamp(slowFactor, 0.6f, 1f);
+        }
     }
 }

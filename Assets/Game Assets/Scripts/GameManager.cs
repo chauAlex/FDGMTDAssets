@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI timeFloat;
 
     public string nextLevel = "Level02";
-
+    public float levelTime = 60f;
     public int nextLevelIndex = 2;
     // Update is called once per frame
     void Update()
@@ -33,12 +33,12 @@ public class GameManager : MonoBehaviour
         {
             EndGame();
         }
-        else if (AudioManager.instance.GetTime("MainTheme") >= 60f)
+        else if (AudioManager.instance.GetTime("MainTheme") >= levelTime)
         {
             WonGame();
         }
 
-        if (AudioManager.instance.GetTime("SlimeAttackTheme") >= 8.5f)
+        if (AudioManager.instance.GetTime("SlimeAttackTheme") >= 20f)
             AudioManager.instance.DisableButton();
     }
 

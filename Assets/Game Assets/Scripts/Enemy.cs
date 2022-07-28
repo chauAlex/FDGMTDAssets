@@ -74,6 +74,12 @@ public class Enemy : MonoBehaviour, IPooledObject
         speed = 0.5f * speed;
         Invoke("ResetSpeed", 5f);
     }
+    
+    public void SlowTickFor(float factor, float time)
+    {
+        speed = factor * speed;
+        Invoke("ResetSpeed", time);
+    }
 
     private void ResetSpeed()
     {
