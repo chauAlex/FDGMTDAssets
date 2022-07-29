@@ -142,6 +142,7 @@ MonoBehaviour:
   positionOffset: {x: 0, y: 0.2, z: 0}
   otomaEffect: {fileID: 1037864198121816, guid: 638c8ca438a11c54987de876e500ed02, type: 3}
   groundEffect: {fileID: 361597457883878104, guid: b6a0ec0d057844445ab2ab43eaf80259, type: 3}
+  sp: {fileID: 11400000, guid: 405c4c8a344216d49853a821adf60069, type: 2}
 --- !u!136 &8653951692613961686
 CapsuleCollider:
   m_ObjectHideFlags: 0

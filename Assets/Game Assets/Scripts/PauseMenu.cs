@@ -18,6 +18,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Menu()
     {
+        Time.timeScale = 1f;
         sf.FadeTo("MainMenu");
     }
 

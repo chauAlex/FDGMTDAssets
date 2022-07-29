@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using MilkShake;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Otoma : Turret
@@ -7,6 +9,8 @@ public class Otoma : Turret
     public GameObject otomaEffect;
     public GameObject groundEffect;
     private float slowFactor = 1.05f;
+    public ShakePreset sp;
+    
     protected override void Shoot()
     {
         //make AOE ground pound
@@ -32,10 +36,10 @@ public class Otoma : Turret
         Destroy(geffect, 2f);
         AudioManager.instance.Play("ThudSound");
         collid.gameObject.GetComponent<Enemy>().TakeDamage(damage);
+        Shaker.ShakeAll(sp);
         if (slowFactor < 1f)
         {
             collid.gameObject.GetComponent<Enemy>().SlowTickFor(slowFactor, 3);
-            Debug.Log("slowed");
         }
     }
 
