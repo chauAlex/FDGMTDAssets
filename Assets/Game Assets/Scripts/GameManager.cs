@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
 
     public Slider musicTime;
     public TextMeshProUGUI timeFloat;
+    public Slider buttonSlider;
 
     public string nextLevel = "Level02";
     public float levelTime = 60f;
@@ -27,7 +28,7 @@ public class GameManager : MonoBehaviour
         
         //update audio slider
         musicTime.value = AudioManager.instance.GetTime("MainTheme");
-        timeFloat.text = Math.Round((decimal)AudioManager.instance.GetTime("MainTheme"), 2).ToString();
+        timeFloat.text = ((int)AudioManager.instance.GetTime("MainTheme")).ToString() + "s";
         
         if (PlayerStats.instance.lives <= 0)
         {
@@ -39,7 +40,17 @@ public class GameManager : MonoBehaviour
         }
 
         if (AudioManager.instance.GetTime("SlimeAttackTheme") >= 20f)
+        {
             AudioManager.instance.DisableButton();
+            buttonSlider.gameObject.GetComponentInChildren<TextMeshProUGUI>().text =
+                "0s";
+        }
+        else
+        {
+            buttonSlider.value = 20 - AudioManager.instance.GetTime("SlimeAttackTheme");
+            buttonSlider.gameObject.GetComponentInChildren<TextMeshProUGUI>().text =
+                (20 - ((int)AudioManager.instance.GetTime("SlimeAttackTheme"))) + "s";
+        }
     }
 
     private void EndGame()

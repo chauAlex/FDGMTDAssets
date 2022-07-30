@@ -15,6 +15,9 @@ public class AudioManager : MonoBehaviour
     public Animator buttonAnim;
     public bool pausedUI;
     public Button playButton;
+    public Image shieldToggle;
+    public Sprite greenShield;
+    public Sprite redShield;
     private bool toggle;
     private void Awake()
     {
@@ -96,6 +99,7 @@ public class AudioManager : MonoBehaviour
             paused = false;
             buttonImage.color = Color.white;
             buttonAnim.enabled = true;
+            shieldToggle.sprite = greenShield;
         }
         else
         {
@@ -103,6 +107,7 @@ public class AudioManager : MonoBehaviour
             paused = true;
             buttonImage.color = Color.red;
             buttonAnim.enabled = false;
+            shieldToggle.sprite = redShield;
         }
     }
 

@@ -7,11 +7,11 @@
             },
             {
               "name": "FragileEnemy",
-              "prob": 0.3
+              "prob": 0.05
             },
             {
               "name": "ToughEnemy",
-              "prob": 0.7
+              "prob": 0.4
             }
           ]
 }

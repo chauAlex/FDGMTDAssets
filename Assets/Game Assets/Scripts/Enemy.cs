@@ -48,6 +48,7 @@ public class Enemy : MonoBehaviour, IPooledObject
         origSpeed = speed;
         wavepointIndex = 0;
         healthSlider.maxValue = health;
+        healthSlider.value = health;
     }
 
     public void TakeDamage(int amount)

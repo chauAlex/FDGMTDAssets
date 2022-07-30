@@ -45,6 +45,7 @@ public class Otoma : Turret
 
     protected override void FetchPrice()
     {
+        health = 80;
         damage = 60;
         price = GameObject.Find("Otoma").GetComponent<Card>().price;
     }

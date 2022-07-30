@@ -1851,7 +1851,12 @@ MonoBehaviour:
     Programming
     - Alexander Chau
 
-    Art - Fabian Espinosa'
+    Art - Fabian Espinosa
+
+    Other Unity Assets - Milkshake,
+    GUI Pro Kit, Polygonal Particles, HDR Skyboxes
+
+    Icon by redaxy on freeicons.io'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
   m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
@@ -1878,8 +1883,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 29.8
+  m_fontSizeBase: 29.8
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
